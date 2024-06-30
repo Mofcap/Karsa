@@ -7,12 +7,13 @@ const HousingDetail = () => {
   const { id } = useParams();
   const [isDescriptionVisible, setDescriptionVisible] = useState(false);
   const [areEquipmentsVisible, setEquipmentsVisible] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Déplacez cette ligne ici
 
   const housing = housings.find((item) => item.id === id);
 
   const getStarRating = (rating) => {
     const totalStars = 5;
-    const filledStars = parseInt(rating); // Convert string to number
+    const filledStars = parseInt(rating); // Convertir la chaîne en nombre
     const emptyStars = totalStars - filledStars;
 
     const filledStarStyle = {
@@ -24,21 +25,31 @@ const HousingDetail = () => {
     };
 
     return (
-      <div className='ratting'>
-      {[...Array(filledStars)].map((_, index) => (
-        <p key={index} style={filledStarStyle}>★</p>
-      ))}
-      {[...Array(emptyStars)].map((_, index) => (
-        <p key={index} style={emptyStarStyle}>☆</p>
-      ))}
-    </div>
+      <div className='rating'>
+        {[...Array(filledStars)].map((_, index) => (
+          <h1 key={index} style={filledStarStyle}>★</h1>
+        ))}
+        {[...Array(emptyStars)].map((_, index) => (
+          <h1 key={index} style={emptyStarStyle}>☆</h1>
+        ))}
+      </div>
     );
+  };
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % housing.pictures.length);
+  };
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + housing.pictures.length) % housing.pictures.length);
   };
 
   return (
     <main className="housing-detail">
       <div className="photo">
-        <img src={housing.cover} alt={housing.title} />
+        <img src={housing.pictures[currentImageIndex]} alt={housing.title} />
+        <button className="nav-button left" onClick={handlePrevImage}>←</button>
+        <button className="nav-button right" onClick={handleNextImage}>→</button>
       </div>
       <section className='second'>
         <div className='medium'>
@@ -46,10 +57,10 @@ const HousingDetail = () => {
           <h4>{housing.location}</h4>
           <div className="tags">
             {housing.tags.map((tag, index) => (
-              <span key={index}>{tag}</span>
+              <span className='tag' key={index}>{tag}</span>
             ))}
           </div>
-          <button onClick={() => setDescriptionVisible(!isDescriptionVisible)}>Toggle Description</button>
+          <button className='equipments' onClick={() => setDescriptionVisible(!isDescriptionVisible)}>Toggle Description</button>
           {isDescriptionVisible && (
             <p className="description">
               {housing.description}
