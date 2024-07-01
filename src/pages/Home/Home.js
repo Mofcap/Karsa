@@ -1,7 +1,7 @@
 import React from 'react';
 import HousingList from '../../components/HousingList/HousingList';
 import './Home.css';
-import Footer from '../../components/Footer/Footer';
+
 
 const Home = () => (
   <div className="home">

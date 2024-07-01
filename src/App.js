@@ -1,15 +1,24 @@
 import React from 'react';
-import AppRoutes from './routes';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
+import Home from './pages/Home/Home'; // Page d'accueil
+import About from './pages/About/About'; // Page A Propos
+import HousingList from './components/HousingList/HousingList'; // Assurez-vous que ces composants existent
+import HousingDetail from './components/HousingDetail/HousingDetail';
 import Footer from './components/Footer/Footer';
 
 const App = () => (
-  <div className="App">
-    <Header />
-    <AppRoutes />
-    <Footer />
-  </div>
+  <Router>
+    <div className="App">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/housing/:id" element={<HousingDetail />} />
+      </Routes>
+      <Footer />
+    </div>
+  </Router>
 );
 
 export default App;
