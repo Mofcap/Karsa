@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../components/HousingDetail/HousingDetail.css';
+import './About.css';
 const About = () => {
   const [isFiabiliteVisible, setFiabiliteVisible] = useState(false);
   const [isRespectVisible, setRespectVisible] = useState(false);
@@ -16,7 +16,10 @@ const About = () => {
 
   return (
     <div className='about'>
-      <img src={require('../../assets/images/b9995860bb6384a77ca7dc9bf52da3be.jpeg')} alt='photo2' />
+      <div className='photo'>
+      <img  src={require('../../assets/images/b9995860bb6384a77ca7dc9bf52da3be.jpeg')} alt='photo2' />
+      </div>
+      
       <div className="section">
         <button className='equipments' onClick={() => setFiabiliteVisible(!isFiabiliteVisible)}>
           Fiabilité
