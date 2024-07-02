@@ -38,3 +38,10 @@
   .nav-links a.active::after {
     width: 100%;
   }
+  @media (max-width: 590px) {
+    .header img{
+      width: 145px;
+      height: 46.89px;
+  }
+
+  }
