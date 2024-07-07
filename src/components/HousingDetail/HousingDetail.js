@@ -2,27 +2,26 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import housings from '../../data.json';
 import './HousingDetail.css';
+import leftArrow from '../../assets/images/output.png'; 
+import rightArrow from '../../assets/images/output.png'; 
+import downArrow from '../../assets/images/output.png';
+import upArrow from '../../assets/images/output.png';
 
 const HousingDetail = () => {
   const { id } = useParams();
   const [isDescriptionVisible, setDescriptionVisible] = useState(false);
   const [areEquipmentsVisible, setEquipmentsVisible] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Déplacez cette ligne ici
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const housing = housings.find((item) => item.id === id);
 
   const getStarRating = (rating) => {
     const totalStars = 5;
-    const filledStars = parseInt(rating); // Convertir la chaîne en nombre
+    const filledStars = parseInt(rating, 10);
     const emptyStars = totalStars - filledStars;
 
-    const filledStarStyle = {
-      color: '#FF6060',
-    };
-
-    const emptyStarStyle = {
-      color: '#E3E3E3',
-    };
+    const filledStarStyle = { color: '#FF6060' };
+    const emptyStarStyle = { color: '#E3E3E3' };
 
     return (
       <div className='rating'>
@@ -48,8 +47,15 @@ const HousingDetail = () => {
     <main className="housing-detail">
       <div className="photo">
         <img src={housing.pictures[currentImageIndex]} alt={housing.title} />
-        <button className="nav-button left" onClick={handlePrevImage}>←</button>
-        <button className="nav-button right" onClick={handleNextImage}>→</button>
+        <div className="photo-index">
+          {currentImageIndex + 1} / {housing.pictures.length}
+        </div>
+        <button className="nav-button left" onClick={handlePrevImage}>
+          <img src={leftArrow} alt='Previous' />
+        </button>
+        <button className="nav-button right" onClick={handleNextImage}>
+          <img src={rightArrow} alt='Next' />
+        </button>
       </div>
       <section className='second'>
         <div className='medium'>
@@ -60,36 +66,54 @@ const HousingDetail = () => {
               <span className='tag' key={index}>{tag}</span>
             ))}
           </div>
-          <button className='equipments' onClick={() => setDescriptionVisible(!isDescriptionVisible)}>Toggle Description</button>
+          
+        </div>
+        <div className='medium2'>
+          <div className='hostt'>
+            <p>{housing.host.name}</p>
+            <img src={housing.host.picture} alt='Host' />
+          </div>
+          <div className="rating">
+            {getStarRating(housing.rating)}
+          </div>
+          
+        </div>
+        
+      </section>
+      <div className='medium3'>
+        <div className='mesbtn'>
+        <button className='equipments' onClick={() => setDescriptionVisible(!isDescriptionVisible)}>
+            <h2>Description</h2> 
+            <img src={isDescriptionVisible ? upArrow : downArrow} alt='toggle' className={isDescriptionVisible ? 'rotated' : ''} />
+          </button>
           {isDescriptionVisible && (
             <p className="description">
               {housing.description}
             </p>
           )}
+
         </div>
-        <div className='medium2'>
-          <div className='hostt'>
-            <p>{housing.host.name}</p>
-            <img src={housing.host.picture} alt='hostpicture' />
-          </div>
-          <div className="rating">
-            {getStarRating(housing.rating)}
-          </div>
+        
+          <div className='mesbtn'>
           <button className='equipments' onClick={() => setEquipmentsVisible(!areEquipmentsVisible)}>
-            Toggle Equipments
+             <h2>Equipments</h2> 
+             <img src={areEquipmentsVisible ? upArrow : downArrow} alt='toggle' className={areEquipmentsVisible ? 'rotated' : ''} />
           </button>
           {areEquipmentsVisible && (
-            <div className="equipments">
-              <h3>Equipments</h3>
+            <div className="equipment">
               <ul>
                 {housing.equipments.map((equipment, index) => (
-                  <li key={index}>{equipment}</li>
+                  <p key={index}>{equipment}</p>
                 ))}
               </ul>
             </div>
           )}
+          </div>
+          
+          
         </div>
-      </section>
+       
+        
     </main>
   );
 };

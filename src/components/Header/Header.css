@@ -12,14 +12,15 @@
 
 .nav-links {
   margin: 1%;
+  font-family: sans-serif;
   font-size: 24px;
 }
 
 .nav-links a {
   color: black;
   text-decoration: none;
-  position: relative; /* Pour positionner la ligne sous le lien */
-  padding: 5px; /* Ajoute de l'espace pour la ligne */
+  position: relative;
+  padding: 0px 15px 10px 15px;
 }
 
 .nav-links a::after {
@@ -31,17 +32,21 @@
   transition: width 0.3s;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 10px;
 }
 
 .nav-links a:hover::after,
 .nav-links a.active::after {
-  width: 100%;
+  width: 80%;
 }
 
 @media (max-width: 590px) {
   .header img {
     width: 145px;
     height: 46.89px;
+  }
+  .nav-links {
+    font-size: 12px;
+    font-weight: 500;
   }
 }/*# sourceMappingURL=Header.css.map */

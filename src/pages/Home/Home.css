@@ -4,16 +4,33 @@ body, html {
 
 .home {
   position: relative;
+  align-items: center;
 }
 
 .home img {
-  background-color: black;
-  height: 223px;
-  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+  height: 340px;
+}
+
+.myimg {
+  width: 98%;
+  filter: brightness(30%);
 }
 
 .home h2 {
   position: absolute;
-  top: 110px;
+  top: 100px;
   left: 40%;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: white;
+}
+
+@media (max-width: 590px) {
+  .home h2 {
+    font-size: 24px;
+  }
 }/*# sourceMappingURL=Home.css.map */

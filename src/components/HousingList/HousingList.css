@@ -1,6 +1,9 @@
 .housing-list {
   padding: 20px;
   background-color: #F6F6F6;
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 15px;
 }
 
 .cards {
@@ -11,7 +14,6 @@
 }
 
 .card {
-  background-color: #f46969;
   border-radius: 10px;
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

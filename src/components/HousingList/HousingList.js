@@ -9,7 +9,7 @@ const HousingList = () => (
       {housings.map((housing) => (
         <Link to={`/housing/${housing.id}`}>
         <div key={housing.id} className="card">
-          
+        <img src={housing.cover} alt={housing.title} />
           <h3>{housing.title}</h3>
           
         </div>

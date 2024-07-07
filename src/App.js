@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './pages/Home/Home'; // Page d'accueil
 import About from './pages/About/About'; // Page A Propos
-import HousingList from './components/HousingList/HousingList'; // Assurez-vous que ces composants existent
+import NotFound from './pages/NotFound/NotFound';
 import HousingDetail from './components/HousingDetail/HousingDetail';
 import Footer from './components/Footer/Footer';
 
@@ -15,6 +15,7 @@ const App = () => (
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/housing/:id" element={<HousingDetail />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
