@@ -7,7 +7,7 @@ const About = () => {
   const [isSécuritéVisible, setSécuritéVisible] = useState(false);
 
   const Arrow = ({ isOpen }) => (
-    <img
+    <img 
       src={require('../../assets/images/output.png')}
       alt="arrow"
       className={`arrow ${isOpen ? 'open' : ''}`}
@@ -17,7 +17,7 @@ const About = () => {
   return (
     <div className='about'>
       <div className='photo'>
-      <img  src={require('../../assets/images/b9995860bb6384a77ca7dc9bf52da3be.jpeg')} alt='photo2' />
+      <img className='aboutphoto'  src={require('../../assets/images/b9995860bb6384a77ca7dc9bf52da3be.jpeg')} alt='photo2' />
       </div>
       
       <div className="section">

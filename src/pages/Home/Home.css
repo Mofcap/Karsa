@@ -1,28 +1,27 @@
-body, html {
-  padding: 15px;
-}
-
 .home {
   position: relative;
   align-items: center;
+  padding: 15px;
+  max-width: 100%;
 }
 
 .home img {
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 15px;
-  height: 340px;
 }
 
 .myimg {
-  width: 98%;
+  border-radius: 25px;
+  width: 100%;
+  height: 340px;
   filter: brightness(30%);
 }
 
 .home h2 {
   position: absolute;
   top: 100px;
-  left: 30%;
+  width: 70%;
+  left: 25%;
   font-family: sans-serif;
   font-weight: 700;
   font-size: 48px;
@@ -32,5 +31,14 @@ body, html {
 @media (max-width: 590px) {
   .home h2 {
     font-size: 24px;
+  }
+  .myimg {
+    height: 110px;
+    border-radius: 15px;
+  }
+  .home h2 {
+    font-size: 24px;
+    top: 15px;
+    left: 35px;
   }
 }/*# sourceMappingURL=Home.css.map */

@@ -6,4 +6,19 @@ footer{
     align-items: center;
     padding: 15px;
     width: 100%;
+    margin-top: 20px;
+
+    text-align: center;
+}
+@media (max-width: 590px){
+    footer{
+        margin-top: 10px;
+    }
+    footer img{
+        width: 20%;
+    }
+    footer p{
+        
+        width: 50%;
+    }
 }

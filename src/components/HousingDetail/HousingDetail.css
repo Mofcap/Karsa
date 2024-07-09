@@ -1,11 +1,16 @@
 /* HousingDetail.css */
-.housing-detail {
+body {
   width: 100%;
-  padding: 30px 0px 30px 0px;
+}
+
+.housing-detail {
+  max-width: 100%;
+  padding: 0px 30px 0px 30px;
 }
 
 .photo {
   height: 415px;
+  max-width: 100%;
   position: relative;
 }
 
@@ -14,6 +19,7 @@
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 25px;
   filter: none;
 }
 
@@ -24,7 +30,7 @@
   background: rgba(0, 0, 0, 0);
   color: white;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 .nav-button {
@@ -79,6 +85,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin-top: 15px;
+  text-align: end;
+}
+
+.medium2 p {
+  max-width: 92px;
 }
 
 .tag {
@@ -138,7 +150,7 @@ h4 {
   background-color: #FF6060;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 1px 20px;
   width: 100%;
 }
 
@@ -172,6 +184,15 @@ h4 {
 
 /* Mobile Styles */
 @media (max-width: 590px) {
+  .photo {
+    height: 250px;
+  }
+  .photo-index {
+    right: 45%;
+  }
+  .nav-button {
+    width: 12%;
+  }
   .second {
     flex-direction: column;
     align-items: center;

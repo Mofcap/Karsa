@@ -1,18 +1,20 @@
 .about{
-    width: 90%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px;
+    margin: 0px;
     
 }
 .about .photo{
     width: 100%;
     height: 223px;
+    filter: brightness(30%);
     }
-    .photo img{
+    .aboutphoto{
         border-radius: 15px;
-        filter: brightness(30%);
+        
     }
 
 .section{
@@ -25,17 +27,41 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 20px 20px 10px 15px;
+    padding: 10px 20px 10px 15px;
+    height: 54px;
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 0px;
 }
-.arrow {
-    width: 24px;
-    height: 24px;
+.section p{
+    margin-top:-10px;
+}
+.arrow  {
+    max-width: 44px;
+    max-height: 44px;
     transition: transform 0.3s ease;
   }
   
   .arrow.open {
     transform: rotate(180deg);
+  }
+  @media (max-width: 590px){
+    .section {
+        width: 100%;
+    }
+    .section button{
+        height: 30px;
+        padding: 10px 0px 10px 10px ;
+        font-size: 13px;
+
+    }
+    .arrow  {
+        margin-top: -10px;
+        max-width: 32px;
+        max-height: 32px;
+    }
+   
+    .about .photo{
+        height: 111px;
+    }
   }

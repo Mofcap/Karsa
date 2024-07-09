@@ -14,6 +14,7 @@ const HousingDetail = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const housing = housings.find((item) => item.id === id);
+  const hasMultiplePhotos = housing.pictures.length > 1;
 
   const getStarRating = (rating) => {
     const totalStars = 5;
@@ -47,15 +48,19 @@ const HousingDetail = () => {
     <main className="housing-detail">
       <div className="photo">
         <img src={housing.pictures[currentImageIndex]} alt={housing.title} />
-        <div className="photo-index">
-          {currentImageIndex + 1} / {housing.pictures.length}
-        </div>
-        <button className="nav-button left" onClick={handlePrevImage}>
-          <img src={leftArrow} alt='Previous' />
-        </button>
-        <button className="nav-button right" onClick={handleNextImage}>
-          <img src={rightArrow} alt='Next' />
-        </button>
+        {hasMultiplePhotos && (
+          <>
+            <div className="photo-index">
+              {currentImageIndex + 1} / {housing.pictures.length}
+            </div>
+            <button className="nav-button left" onClick={handlePrevImage}>
+              <img src={leftArrow} alt='Previous' />
+            </button>
+            <button className="nav-button right" onClick={handleNextImage}>
+              <img src={rightArrow} alt='Next' />
+            </button>
+          </>
+        )}
       </div>
       <section className='second'>
         <div className='medium'>
