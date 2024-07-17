@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import housings from '../../data.json';
 import './HousingDetail.css';
 import leftArrow from '../../assets/images/output.png'; 
@@ -14,6 +14,11 @@ const HousingDetail = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const housing = housings.find((item) => item.id === id);
+
+  if (!housing) {
+    return <Navigate to="/not-found" />;
+  }
+
   const hasMultiplePhotos = housing.pictures.length > 1;
 
   const getStarRating = (rating) => {
@@ -71,7 +76,6 @@ const HousingDetail = () => {
               <span className='tag' key={index}>{tag}</span>
             ))}
           </div>
-          
         </div>
         <div className='medium2'>
           <div className='hostt'>
@@ -81,13 +85,11 @@ const HousingDetail = () => {
           <div className="rating">
             {getStarRating(housing.rating)}
           </div>
-          
         </div>
-        
       </section>
       <div className='medium3'>
         <div className='mesbtn'>
-        <button className='equipments' onClick={() => setDescriptionVisible(!isDescriptionVisible)}>
+          <button className='equipments' onClick={() => setDescriptionVisible(!isDescriptionVisible)}>
             <h2>Description</h2> 
             <img src={isDescriptionVisible ? upArrow : downArrow} alt='toggle' className={isDescriptionVisible ? 'rotated' : ''} />
           </button>
@@ -96,10 +98,8 @@ const HousingDetail = () => {
               {housing.description}
             </p>
           )}
-
         </div>
-        
-          <div className='mesbtn'>
+        <div className='mesbtn'>
           <button className='equipments' onClick={() => setEquipmentsVisible(!areEquipmentsVisible)}>
              <h2>Equipments</h2> 
              <img src={areEquipmentsVisible ? upArrow : downArrow} alt='toggle' className={areEquipmentsVisible ? 'rotated' : ''} />
@@ -113,12 +113,8 @@ const HousingDetail = () => {
               </ul>
             </div>
           )}
-          </div>
-          
-          
         </div>
-       
-        
+      </div>
     </main>
   );
 };

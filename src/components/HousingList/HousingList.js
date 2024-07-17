@@ -11,9 +11,9 @@ const HousingList = () => (
         <div key={housing.id} className="card">
         <img src={housing.cover} alt={housing.title} />
           <h3>{housing.title}</h3>
-          
         </div>
-        </Link>
+        </Link>     
+     
       ))}
     </div>
   </div>
