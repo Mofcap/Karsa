@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Karsa/static/css/main.fda3efd0.css",
+    "main.js": "/Karsa/static/js/main.ba2bc972.js",
+    "static/js/453.4b887e45.chunk.js": "/Karsa/static/js/453.4b887e45.chunk.js",
+    "static/media/jpeg": "/Karsa/static/media/e270fc8fc902a1eb738458e7b29c1899.0f820b85d9a6a7e177b3.jpeg",
+    "index.html": "/Karsa/index.html",
+    "main.fda3efd0.css.map": "/Karsa/static/css/main.fda3efd0.css.map",
+    "main.ba2bc972.js.map": "/Karsa/static/js/main.ba2bc972.js.map",
+    "453.4b887e45.chunk.js.map": "/Karsa/static/js/453.4b887e45.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fda3efd0.css",
+    "static/js/main.ba2bc972.js"
+  ]
+}
